@@ -30,6 +30,7 @@
                 <input type="text" class="form-control" id="series" name="series">
             </div>
 
+
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" name="description" id="description" rows="3"></textarea>

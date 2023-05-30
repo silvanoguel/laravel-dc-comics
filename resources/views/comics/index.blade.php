@@ -12,7 +12,7 @@
                     <th scope="col">id</th>
                     <th scope="col">Title</th>
                     <th scope="col">Type</th>
-                    <th scope="col">View Details</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +24,9 @@
                         <td>
                             <a class="btn btn-success" href="{{ route('comics.show', $comic->id) }}">
                                 <i class="fa-solid fa-eye"></i>
+                            </a>
+                            <a class="btn btn-warning" href="{{ route('comics.edit', $comic->id) }}">
+                                <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                         </td>
                     </tr>

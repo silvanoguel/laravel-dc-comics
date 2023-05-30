@@ -3,7 +3,7 @@
 @section('content')
     <div class="container py-4">
         <h2>DETAILS:  {{ $comic->title }}</h2>
-        <img class="w-30" src="{{ $comic->thumb }}" alt="">
+        <img class="w-10" src="{{ $comic->thumb }}" alt="">
         <ul class="list-group">
             <li class="list-group-item">
                 <strong>Type: </strong> {{ $comic->type }}

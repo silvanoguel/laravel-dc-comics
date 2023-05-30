@@ -39,7 +39,12 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $comic = new Comic();
-        $comic->fill($data);
+        $comic->title = $data['title'];
+        $comic->sale_date ='';
+        $comic->description = $data['description'];
+        $comic->price = $data['price'];
+        $comic->series = $data['series'];
+        $comic->type = $data['type'];
         $comic->save();
 
         return redirect()->route('comics.index');
@@ -93,6 +98,8 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }

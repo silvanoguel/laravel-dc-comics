@@ -7,7 +7,7 @@
             <a class="btn btn-primary" href="{{ route('comics.index') }}">Go to comics list</a>
         </div>
 
-        <h2>update your comic: {{ $comic->title }}</h2>
+        <h2>EDIT YOUR COMIC: {{ $comic->title }}</h2>
 
         <form action="{{ route('comics.update', $comic->id) }}" method="POST">
             @method('PUT')

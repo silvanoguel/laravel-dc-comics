@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container py-4">
+        <a class="btn btn-success my-4" href="{{ route('comics.index') }}">Go to Comics List</a>
         <h2>DETAILS:  {{ $comic->title }}</h2>
         <img class="w-10" src="{{ $comic->thumb }}" alt="">
         <ul class="list-group">
@@ -21,5 +22,12 @@
                 <strong>Description: </strong> {{ $comic->description }}
             </li>
         </ul>
+
+        <div class="my-3">
+            <a class="btn btn-warning" href="{{ route('comics.edit', $comic->id) }}">Edit</a>
+
+
+        </div>
+
     </div>
 @endsection

@@ -39,12 +39,7 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $comic = new Comic();
-        $comic->title = $data['title'];
-        $comic->sale_date ='';
-        $comic->description = $data['description'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->type = $data['type'];
+        $comic->fill($data);
         $comic->save();
 
         return redirect()->route('comics.index');
@@ -83,7 +78,11 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $data = $request->all();
+        $comic = Comic::findOrFail($id);
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

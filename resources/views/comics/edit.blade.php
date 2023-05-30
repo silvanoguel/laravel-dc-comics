@@ -22,7 +22,7 @@
                 <label for="type" class="form-label">Type</label>
                 <select id="type" name="type" class="form-select">
                     <option></option>
-                    <option @selected($comic->type === 'marvel') value="marvel">MArvel</option>
+                    <option @selected($comic->type === 'marvel') value="marvel">Marvel</option>
                     <option @selected($comic->type === 'dc') value="dc">DC comics</option>
                     <option @selected($comic->type === 'other') value="other">Other</option>
                 </select>
@@ -45,7 +45,7 @@
                 <textarea class="form-control" name="description" id="description" rows="3">{{ $comic->description }}</textarea>
             </div>
 
-            <button class="btn btn-primary" type="submit">GO</button>
+            <button class="btn btn-primary" type="submit">Send</button>
         </form>
     </div>
 @endsection

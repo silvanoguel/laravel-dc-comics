@@ -47,6 +47,7 @@ class StoreComicRequest extends FormRequest
             'title.max' => 'Il campo "Title" non deve superare 100 caratteri',
             'price.required' => 'il campo "Price" è richiesto',
             'series.required' => 'il campo "Series" è richiesto',
+            'type.required' => 'il campo "Type" è richiesto',
         ];
     }
 }

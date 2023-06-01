@@ -3,6 +3,14 @@
 @section('content')
     <div class="container">
 
+        @if ($errors->any())
+            <ul class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+
         <div class="my-3">
             <a class="btn btn-primary" href="{{ route('comics.index') }}">Go to comics list</a>
         </div>
@@ -15,24 +23,40 @@
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $comic->title }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                    name="title" value="{{ old('title', $comic->title) }}">
+                @error('title')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="type" class="form-label">Type</label>
-                <select id="type" name="type" class="form-select">
+                <select id="type" name="type" class="form-select @error('type') is-invalid @enderror">
                     <option></option>
-                    <option @selected($comic->type === 'marvel') value="marvel">Marvel</option>
-                    <option @selected($comic->type === 'dc') value="dc">DC comics</option>
-                    <option @selected($comic->type === 'other') value="other">Other</option>
+                    <option @selected(old ('type', $comic->type) === 'marvel') value="marvel">Marvel</option>
+                    <option @selected(old ('type',$comic->type) === 'dc') value="dc">DC comics</option>
+                    <option @selected(old ('type',$comic->type) === 'other') value="other">Other</option>
                 </select>
+                @error('type')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
 
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control" id="price" name="price"
-                    value="{{ $comic->price }}">
+                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+                    name="price" value="{{ old('price', $comic->price) }}">
+                @error('price')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
